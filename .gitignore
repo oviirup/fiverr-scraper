@@ -1,0 +1,15 @@
+# repository
+node_modules
+build
+dist
+.plasmo
+.icons
+*.scss
+
+# local env files
+.env*
+!.env.example
+
+# log files
+*-debug.log*
+*-error.log*

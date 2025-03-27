@@ -1,0 +1,22 @@
+{
+  "explorer.sortOrder": "type",
+  // action on save
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit"
+  },
+  // disable validation for css and scss for tailwind
+  "css.validate": false,
+  "scss.validate": false,
+  // tailwind support for cva and classNames
+  "tailwindCSS.classAttributes": ["className", "\\w+ClassName"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  // prettier-ignore
+  "cSpell.words": [
+    "tailwindcss","webp","zod","plasmohq","pluggables",
+  ]
+}
