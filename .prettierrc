@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/prettierrc.json",
   "arrowParens": "always",
   "bracketSameLine": true,
-  "printWidth": 120,
+  "printWidth": 80,
   "plugins": [
     "prettier-plugin-pkg",
     "prettier-plugin-imports",
