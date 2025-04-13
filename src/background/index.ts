@@ -3,6 +3,7 @@ import { Storage } from '@plasmohq/storage';
 const CACHED_TOKEN: string = undefined;
 const storage = new Storage({ area: 'local' });
 
+// get csrf token from fiverr http request
 chrome.webRequest.onBeforeSendHeaders.addListener(
   (details) => {
     const token = details.requestHeaders.find(
@@ -15,3 +16,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
   { urls: ['https://www.fiverr.com/*'] },
   ['requestHeaders'],
 );
+
+chrome.sidePanel
+  .setPanelBehavior({ openPanelOnActionClick: true })
+  .catch((error) => console.error(error));

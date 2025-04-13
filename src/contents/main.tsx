@@ -1,20 +1,19 @@
+import { parseMetadata } from '~/contents/parser';
 import type { PlasmoCSConfig } from 'plasmo';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import { observe } from 'selector-observer';
-import { parseMetadata } from './parser';
 import './styles.css';
-import { Storage } from '@plasmohq/storage';
-import { useStorage } from '@plasmohq/storage/hook';
-
-const storage = new Storage({ area: 'local' });
+import { KEYS, useStorage } from '~/lib/storage';
+import type { GigDetails } from '~/types';
 
 function Button() {
-  const [token] = useStorage({ instance: storage, key: 'CSRF_TOKEN' });
+  const [token] = useStorage(KEYS.token);
+  const [, setCollections] = useStorage<GigDetails[]>(KEYS.collection, []);
   const [pending, startTransition] = React.useTransition();
 
   const generateLink = React.useCallback(
-    async (id: string, fallback?: string) => {
+    async (id: number, fallback?: string) => {
       if (!token) return fallback;
       const generateLinkURL = 'https://www.fiverr.com/sharing/generate_link';
       const options = {
@@ -56,9 +55,13 @@ function Button() {
         const raw = jsonLD.textContent.trim();
         const data = parseMetadata(JSON.parse(raw));
         data.link = await generateLink(data.id, data.link);
-        console.log(data);
-      } catch {
-        // do nothing
+        setCollections((prev) => {
+          const index = prev.findIndex((c) => c.id === data.id);
+          if (index === -1) prev.push(data);
+          return prev;
+        });
+      } catch (err) {
+        console.error(err);
       }
     });
   }, [token, pending, startTransition]);

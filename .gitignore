@@ -13,3 +13,8 @@ dist
 # log files
 *-debug.log*
 *-error.log*
+
+# miscellaneous
+*.tsbuildinfo
+assets/*.sprite.svg
+src/*/index.html

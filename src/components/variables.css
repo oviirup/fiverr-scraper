@@ -1,0 +1,46 @@
+:root {
+  --radius: 0.5rem;
+  --color-background: 0 0% 100%;
+  --color-foreground: 240 10% 3.9%;
+  --color-card: 240 5% 96.7%;
+  --color-card-fg: 240 10% 3.9%;
+  --color-popover: 240 5% 94.6%;
+  --color-popover-fg: 240 10% 3.9%;
+  --color-primary: 240 5.9% 10%;
+  --color-primary-fg: 0 0% 98%;
+  --color-secondary: 240 4.8% 95.9%;
+  --color-secondary-fg: 240 5.9% 10%;
+  --color-muted: 240 4.8% 95.9%;
+  --color-muted-fg: 240 3.8% 46.1%;
+  --color-accent: 240 4.8% 95.9%;
+  --color-accent-fg: 240 5.9% 10%;
+  --color-destructive: 0 84.2% 60.2%;
+  --color-destructive-fg: 0 0% 98%;
+  --color-border: 240 5.9% 89%;
+  --color-input: 240 5.9% 90%;
+  --color-ring: 240 5% 64.9%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: 0 0% 16%;
+    --color-foreground: 0 0% 98%;
+    --color-card: 0 0% 24%;
+    --color-card-fg: 0 0% 98%;
+    --color-popover: 0 0% 24%;
+    --color-popover-fg: 0 0% 98%;
+    --color-primary: 0 0% 98%;
+    --color-primary-fg: 240 5.9% 10%;
+    --color-secondary: 240 5.3% 22.3%;
+    --color-secondary-fg: 0 0% 98%;
+    --color-muted: 240 5.3% 22.3%;
+    --color-muted-fg: 0 0% 63.9%;
+    --color-accent: 240 5.3% 22.3%;
+    --color-accent-fg: 0 0% 98%;
+    --color-destructive: 0 84.2% 60.2%;
+    --color-destructive-fg: 0 0% 98%;
+    --color-border: 0 0% 32.2%;
+    --color-input: 240 5.3% 22.3%;
+    --color-ring: 240 3.8% 46.1%;
+  }
+}

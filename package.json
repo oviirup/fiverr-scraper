@@ -1,6 +1,6 @@
 {
   "name": "fiverr-scraper",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "type": "module",
   "displayName": "Fiverr Scraper",
   "description": "Simple tool to manually scrape Fiverr gig, for future references or chat-bots",
@@ -10,31 +10,38 @@
   "scripts": {
     "build": "plasmo build",
     "clean": "npx rimraf .plasmo build",
-    "dev": "plasmo dev",
+    "dev": "bun prebuild && plasmo dev",
     "format": "prettier . -wu --cache",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prebuild": "bun run scripts/prebuild"
   },
   "dependencies": {
     "@plasmohq/messaging": "~0.7.1",
     "@plasmohq/storage": "~1.15.0",
+    "@radix-ui/react-slot": "~1.2.0",
+    "class-variance-authority": "~0.7.1",
+    "markdown-to-jsx": "~7.7.4",
     "plasmo": "~0.90.3",
     "react": "~19.1.0",
     "react-dom": "~19.1.0",
     "selector-observer": "~2.1.6",
+    "tailwind-merge": "~3.2.0",
     "turndown": "~7.2.0"
   },
   "devDependencies": {
-    "@eslint/js": "~9.23.0",
-    "@types/bun": "~1.2.8",
-    "@types/chrome": "~0.0.313",
-    "@types/react": "~19.1.0",
-    "@types/react-dom": "~19.1.1",
+    "@eslint/js": "~9.24.0",
+    "@oviirup/sprite": "~0.1.11",
+    "@tailwindcss/typography": "~0.5.16",
+    "@types/bun": "~1.2.9",
+    "@types/chrome": "~0.0.315",
+    "@types/react": "~19.1.1",
+    "@types/react-dom": "~19.1.2",
     "@types/turndown": "~5.0.5",
     "autoprefixer": "~10.4.21",
-    "eslint": "~9.23.0",
-    "eslint-config-prettier": "~10.1.1",
+    "eslint": "~9.24.0",
+    "eslint-config-prettier": "~10.1.2",
     "eslint-plugin-only-warn": "~1.1.0",
-    "eslint-plugin-react": "~7.37.4",
+    "eslint-plugin-react": "~7.37.5",
     "eslint-plugin-react-hooks": "~5.2.0",
     "eslint-plugin-tailwindcss": "~3.18.0",
     "postcss": "~8.5.3",
@@ -44,8 +51,9 @@
     "prettier-plugin-pkg": "~0.19.0",
     "prettier-plugin-tailwindcss": "~0.6.11",
     "tailwindcss": "~3.4.17",
+    "tailwindcss-pluggables": "~1.0.4",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.29.1"
+    "typescript-eslint": "~8.29.1"
   },
   "manifest": {
     "permissions": [
@@ -53,9 +61,26 @@
       "storage",
       "webRequest"
     ],
+    "action": {
+      "default_title": "Click to open panel"
+    },
     "host_permissions": [
       "https://*/*",
       "https://www.fiverr.com/*"
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/icon.png",
+          "assets/icon.sprite.svg"
+        ],
+        "matches": [
+          "https://*/*"
+        ]
+      }
     ]
-  }
+  },
+  "sprite": [
+    "src/icon.sprite.json"
+  ]
 }
